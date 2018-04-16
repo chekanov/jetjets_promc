@@ -23,14 +23,13 @@ export LD_LIBRARY_PATH=./lib/src/:$LD_LIBRARY_PATH
 echo "STORAGE=$STORAGE"
 ```
 
-
 where "STORAGE" points to a directory with ProMC files. 
 The executable uses "data.in" file that points to the absolute path of ProMC files
 (one file per line). To help creating this file, Make_input file is used.
 
 As an example, you can  run scripts that start  with "A_RUN", 
-assuming the $STORAGE variable is set. 
+assuming the STORAGE variable is set. 
 Each script runs over directories with ProMC files created with different masses of
 particles that decay to dijets, and fills ROOT histograms.
 
-S.Chenaov (ANL) 
+S.Chekanov (ANL) 

@@ -5,6 +5,7 @@ CURRENT_DIR=`pwd`
 source ./msetup.sh
 
 # Directory with ProMC files from HepSim 
+# Files are download from "tev13pp_pythia8_wprimezprime" dataset. 
 DIR=$STORAGE/pythia8_wprimezprime/
 echo $DIR
 

@@ -5,6 +5,7 @@ CURRENT_DIR=`pwd`
 source ./msetup.sh
 
 # Directory with ProMC files from HepSim 
+# The files are download from the "tev13pp_mg5_rho_techni" dataset.
 DIR=$STORAGE/mg5_Wpi_lvqq/
 echo $DIR
 
