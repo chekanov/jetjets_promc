@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+CURRENT_DIR=`pwd`
+
+source ./msetup.sh
+
+DIR=$STORAGE/mg5_Wpi_lvqq/
+echo $DIR
+
+rm -f ana
+make -f Makefile
+
+XFILE=out/cross_tcolor.txt
+rm -f $XFILE
+
+m[1]=250 
+m[2]=300
+m[3]=350
+m[4]=400
+m[5]=450
+m[6]=500
+m[7]=1000
+m[8]=1500
+m[9]=2000
+m[10]=2500
+m[11]=3000
+m[12]=4000
+m[13]=5000
+m[14]=6000
+
+################ do not modify #######################
+NTOT=${#m[@]}
+
+j=1
+while  [ $j -le $NTOT ]
+do
+MASS="m${m[$j]}" 
+echo "Running $MASS"
+
+rm -f cross.txt
+rm -f  data.in
+Make_input $DIR/
+grep -i "_${MASS}_" data.in > a
+mv a data.in
+./ana ${m[$j]}
+mv output.root out/tcolor_${m[$j]}.root
+cat cross.txt >> $XFILE 
+
+let "j = $j + 1"
+done
+

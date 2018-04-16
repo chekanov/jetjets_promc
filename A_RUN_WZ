@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+CURRENT_DIR=`pwd`
+
+source ./msetup.sh
+
+
+DIR=$STORAGE/pythia8_wprimezprime/
+echo $DIR
+
+rm -f ana
+make -f Makefile
+XFILE=out/cross_wzcross.txt
+rm -f $XFILE
+
+m[1]=250 
+m[2]=500
+m[3]=1000
+m[4]=2000
+m[5]=3000
+m[6]=4000
+m[7]=5000
+m[8]=6000
+m[9]=7000
+
+################ do not modify #######################
+NTOT=${#m[@]}
+
+j=1
+while  [ $j -le $NTOT ]
+do
+MASS="m${m[$j]}" 
+echo "Running $MASS"
+
+rm -f cross.txt
+rm -f  data.in
+Make_input $DIR/
+grep -i "_${MASS}_"  data.in > a
+mv a data.in
+./ana ${m[$j]} 
+mv output.root out/wzprime_${m[$j]}.root
+cat cross.txt >> $XFILE 
+
+let "j = $j + 1"
+done
+
