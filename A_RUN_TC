@@ -4,6 +4,7 @@ CURRENT_DIR=`pwd`
 
 source ./msetup.sh
 
+# Directory with ProMC files from HepSim 
 DIR=$STORAGE/mg5_Wpi_lvqq/
 echo $DIR
 

@@ -4,7 +4,7 @@ CURRENT_DIR=`pwd`
 
 source ./msetup.sh
 
-
+# Directory with ProMC files from HepSim 
 DIR=$STORAGE/pythia8_wprimezprime/
 echo $DIR
 
